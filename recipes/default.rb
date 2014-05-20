@@ -11,7 +11,7 @@ def create_logrotate(name, data)
   logrotate_app name do
     cookbook 'logrotate'
 
-    options ['missingok', 'copytruncate']
+    options ['daily', 'missingok', 'copytruncate']
     path "%s/*.log" % data.path.strip.gsub("/$", '')
     rotate 10
     create '0600 root root'
