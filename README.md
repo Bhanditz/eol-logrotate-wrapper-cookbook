@@ -36,6 +36,7 @@ Two things have to be done to use this cookbook.
     "name": "eol_app",
     "nodes": ["eol-staging1.core.cli.mbl.edu", "eo.staging2.core.cli.mbl.edu"],
     "path": "/var/www/eol/current/log"
+  }
 ]
 ```
 When "nodes" array is left empty this logrotate works for any machine with 
