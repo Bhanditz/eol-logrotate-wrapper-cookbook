@@ -11,11 +11,11 @@ def create_logrotate(name, data)
   logrotate_app name do
     cookbook 'logrotate'
 
-    options ['missingok', 'copytruncate']
+    options ['missingok', 'copytruncate', 'compress']
     path "%s/*.log" % data.path.strip.gsub("/$", '')
-    rotate 20
+    rotate 10
     create '0600 root root'
-    size '100k'
+    maxsize '100k'
     frequency 'daily'
   end
 end
@@ -28,7 +28,3 @@ logrotates['logrotates'].each do |name, data|
     create_logrotate(name, data) 
   end
 end
-
-
-
-
